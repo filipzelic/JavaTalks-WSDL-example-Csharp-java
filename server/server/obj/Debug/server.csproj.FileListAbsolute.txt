@@ -1,0 +1,5 @@
+C:\Users\filipzelic\Desktop\filipzelic-iis\server\server\bin\server.dll
+C:\Users\filipzelic\Desktop\filipzelic-iis\server\server\bin\server.pdb
+C:\Users\filipzelic\Desktop\filipzelic-iis\server\server\obj\Debug\server.csprojResolveAssemblyReference.cache
+C:\Users\filipzelic\Desktop\filipzelic-iis\server\server\obj\Debug\server.dll
+C:\Users\filipzelic\Desktop\filipzelic-iis\server\server\obj\Debug\server.pdb

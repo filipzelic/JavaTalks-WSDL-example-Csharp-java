@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ListaSvihKolegija">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListaSvihKolegijaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaSvihKolegijaResult" type="tns:ArrayOfKolegij" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfKolegij">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Kolegij" nillable="true" type="tns:Kolegij" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Kolegij">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IDKolegij" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Naziv" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nositelj" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ECTS" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListaSvihStudenata">
+        <s:complexType />
+      </s:element>
+      <s:element name="ListaSvihStudenataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaSvihStudenataResult" type="tns:ArrayOfStudent" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfStudent">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Student" nillable="true" type="tns:Student" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Student">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IDStudent" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prezime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="JMBG" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="godStudija" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListaUpisanihKolegijaZaStudenta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="studentID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaUpisanihKolegijaZaStudentaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaUpisanihKolegijaZaStudentaResult" type="tns:ArrayOfKolegij" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaUpisanihStudenataZaKolegij">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="kolegijID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListaUpisanihStudenataZaKolegijResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListaUpisanihStudenataZaKolegijResult" type="tns:ArrayOfStudent" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ListaSvihKolegijaSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaSvihKolegija" />
+  </wsdl:message>
+  <wsdl:message name="ListaSvihKolegijaSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaSvihKolegijaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaSvihStudenataSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaSvihStudenata" />
+  </wsdl:message>
+  <wsdl:message name="ListaSvihStudenataSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaSvihStudenataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaUpisanihKolegijaZaStudentaSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaUpisanihKolegijaZaStudenta" />
+  </wsdl:message>
+  <wsdl:message name="ListaUpisanihKolegijaZaStudentaSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaUpisanihKolegijaZaStudentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListaUpisanihStudenataZaKolegijSoapIn">
+    <wsdl:part name="parameters" element="tns:ListaUpisanihStudenataZaKolegij" />
+  </wsdl:message>
+  <wsdl:message name="ListaUpisanihStudenataZaKolegijSoapOut">
+    <wsdl:part name="parameters" element="tns:ListaUpisanihStudenataZaKolegijResponse" />
+  </wsdl:message>
+  <wsdl:portType name="servisSoap">
+    <wsdl:operation name="ListaSvihKolegija">
+      <wsdl:input message="tns:ListaSvihKolegijaSoapIn" />
+      <wsdl:output message="tns:ListaSvihKolegijaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaSvihStudenata">
+      <wsdl:input message="tns:ListaSvihStudenataSoapIn" />
+      <wsdl:output message="tns:ListaSvihStudenataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaUpisanihKolegijaZaStudenta">
+      <wsdl:input message="tns:ListaUpisanihKolegijaZaStudentaSoapIn" />
+      <wsdl:output message="tns:ListaUpisanihKolegijaZaStudentaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaUpisanihStudenataZaKolegij">
+      <wsdl:input message="tns:ListaUpisanihStudenataZaKolegijSoapIn" />
+      <wsdl:output message="tns:ListaUpisanihStudenataZaKolegijSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="servisSoap" type="tns:servisSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListaSvihKolegija">
+      <soap:operation soapAction="http://tempuri.org/ListaSvihKolegija" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaSvihStudenata">
+      <soap:operation soapAction="http://tempuri.org/ListaSvihStudenata" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaUpisanihKolegijaZaStudenta">
+      <soap:operation soapAction="http://tempuri.org/ListaUpisanihKolegijaZaStudenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaUpisanihStudenataZaKolegij">
+      <soap:operation soapAction="http://tempuri.org/ListaUpisanihStudenataZaKolegij" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="servisSoap12" type="tns:servisSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListaSvihKolegija">
+      <soap12:operation soapAction="http://tempuri.org/ListaSvihKolegija" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaSvihStudenata">
+      <soap12:operation soapAction="http://tempuri.org/ListaSvihStudenata" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaUpisanihKolegijaZaStudenta">
+      <soap12:operation soapAction="http://tempuri.org/ListaUpisanihKolegijaZaStudenta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaUpisanihStudenataZaKolegij">
+      <soap12:operation soapAction="http://tempuri.org/ListaUpisanihStudenataZaKolegij" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="servis">
+    <wsdl:port name="servisSoap" binding="tns:servisSoap">
+      <soap:address location="http://localhost:50685/servis.asmx" />
+    </wsdl:port>
+    <wsdl:port name="servisSoap12" binding="tns:servisSoap12">
+      <soap12:address location="http://localhost:50685/servis.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
